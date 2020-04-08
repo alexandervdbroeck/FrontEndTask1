@@ -1,0 +1,80 @@
+.App {
+  font-family: sans-serif;
+  width: 100%;
+  height: 150px;
+  background-color: darkgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  margin: 100px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+input[type="text"] {
+  width: 250px;
+  padding: px 20px;
+  margin: 8px 25px;
+  box-sizing: border-box;
+}
+
+.searchresult {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fig {
+  padding: 15px;
+  text-align: center;
+  width: 500px;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  font-size: 20px;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+figcaption {
+  margin: 25px 0;
+}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #39444b;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 0.5s linear infinite; /* Safari */
+  animation: spin 0.5s linear infinite;
+}
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
