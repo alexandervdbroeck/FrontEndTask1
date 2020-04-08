@@ -21,7 +21,6 @@ export default class props extends React.Component {
   checkSubmit = e => {
 
     if (this.state.search.string !== "") {
-      e.preventDefault();
       console.log(e.target.value)
       this.props.searchMovies(this.state.search.string)
     } else {
@@ -40,6 +39,7 @@ export default class props extends React.Component {
         <img className="logo" src={Logo} alt="logo" />
         <form
           onSubmit={e => {
+            e.preventDefault()
             this.checkSubmit(e);
           }}
         >
