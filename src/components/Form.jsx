@@ -18,6 +18,21 @@ export default class props extends React.Component {
       }
     });
   };
+  checkSubmit = e => {
+
+    if (this.state.search.string !== "") {
+      e.preventDefault();
+      console.log(e.target.value)
+      this.props.searchMovies(this.state.search.string)
+    } else {
+      this.setState({
+        search: {
+          ...this.state.searchStr,
+          error: true
+        }
+      });
+    }
+  }
 
   render() {
     return (
@@ -25,12 +40,12 @@ export default class props extends React.Component {
         <img className="logo" src={Logo} alt="logo" />
         <form
           onSubmit={e => {
-            e.preventDefault();
-            this.props.search(this.state.search.string);
+            this.checkSubmit(e);
           }}
         >
           <input
             type="text"
+            className={this.state.search.error ? "error" : ""}
             value={this.state.search.string}
             onChange={this.setField}
           />

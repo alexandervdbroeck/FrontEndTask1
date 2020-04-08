@@ -12,38 +12,38 @@ export default class App extends Component {
       movies: {
         loading: false,
         error: false,
-        data: []
-      }
+        data: [],
+      },
     };
   }
 
-  searchAction = str => {
+  searchAction = (str) => {
     this.setState({
       movies: {
         ...this.state.movies,
-        loading: true
-      }
+        loading: true,
+      },
     });
     Axios.get(
       `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${str}&type=video&key=AIzaSyDtXj-yp1hNNaASTmoVNPg0aQdp154kKb4`
     )
-      .then(result => {
+      .then((result) => {
         this.setState({
           movies: {
             ...this.state.movies,
             loading: false,
-            data: [...result.data.items]
-          }
+            data: [...result.data.items],
+          },
         });
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
   };
 
   render() {
     return (
       <>
         <div className="App">
-          <Form search={this.searchAction} />
+          <Form searchMovies={this.searchAction} />
         </div>
         <div className="searchresult">
           {this.state.movies.loading && <Loading />}
